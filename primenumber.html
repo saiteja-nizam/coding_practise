@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>primenumber</title>
+  </head>
+  <body>
+    <script>
+      function isPrime(num) {
+        if (num <= 1) return false;
+        else {
+          for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
+          }
+          return true;
+        }
+      }
+      console.log(isPrime(21));
+
+      let newArr = [];
+      function flatten(arr) {
+        // for(let i=0;i<arr.length;i++){
+        //     Array.isArray(arr[i])?flatten(arr[i]):newArr.push(arr[i])
+        // }
+        // return newArr
+
+        return arr.reduce((acc, val) => {
+          return Array.isArray(val)
+            ? acc.concat(flatten(val))
+            : acc.concat(val);
+        }, []);
+      }
+
+      let b = [1, [2,[9,8], 3], 9];
+
+      console.log(flatten(b));
+
+    </script>
+  </body>
+</html>

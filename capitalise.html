@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>capitalise</title>
+</head>
+<body>
+    <label>search</label>
+    <input type="text" id="inp">
+    <script>
+        function capitalise(sentence){
+            let words=sentence.split(" ").map((e)=>e[0].toUpperCase()+e.slice(1))
+            return words.join(" ")
+        }
+        console.log(capitalise("hai sai"))
+
+        function debounce(func,delay){
+            let timer
+            return function(...args){
+                if(timer) clearTimeout(timer)
+                timer=setTimeout(()=>{
+                func(...args)
+            },delay)
+        }
+        }
+        let input=document.getElementById('inp')
+        function fetch(e){
+            console.log(e.target.value)
+        }
+        input.addEventListener("keydown",debounce(fetch,1000))
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frequent element</title>
+</head>
+<body>
+    <script>
+        function nElements(arr=[],n){
+            n>arr.length?res="n is more than array length":res=arr.slice(0,n)
+            return res
+        }
+        console.log(nElements([1,2,3,40,5,6],9))
+
+        function occurenceCount(arr){
+            let res=arr.reduce((acc,val)=>{
+                acc[val]=(acc[val]||0)+1
+                return acc
+            },{})
+            return res
+        }
+       
+        function sortObject(obj){
+            return Object.keys(obj).sort((a,b)=>obj[a]-obj[b])
+        }
+
+        console.log(sortObject(occurenceCount([1,2,2,2,3,3,4,1,9,3,3,3])))
+
+        function frequentElement(arr){
+            let res=occurenceCount(arr)
+            let ele=Object.keys(res).reduce((acc,val)=>res[acc]>res[val]?acc:val)
+            return ele
+        }
+
+       console.log(frequentElement([1,1,1,2,3,2,3,3,3,4]))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram</title>
+</head>
+<body>
+    <script>
+        let s1="raft"
+        let s2="fart"
+        function Anagram(s1,s2){
+            return s1.length==s2.length?JSON.stringify([...s1].sort())==JSON.stringify([...s2].sort()):false
+        }
+        Anagram(s1,s2)?console.log("They are anagram"):console.log("they are not anagram")
+    </script>
+</body>
+</html>

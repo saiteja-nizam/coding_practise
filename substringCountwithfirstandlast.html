@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>substring1andlastequal</title>
+</head>
+<body>
+    <script>
+        function verify(str){
+            return str[0]===str[str.length-1]?true:false
+        }
+
+        function substringCount(str){
+            let subArr=[]
+        
+            for(let i=0;i<str.length;i++){
+                for(let j=i+1;j<str.length+1;j++){
+                    
+                    if(verify(str.substring(i,j))) subArr.push(str.substring(i,j))
+                }
+            }
+
+            return {
+                array:function(){
+                    return subArr
+                },
+                count:function(){
+                    return subArr.length
+                }
+            }
+        }
+        let result=substringCount("abcab")
+        console.log(result.count())
+    </script>
+</body>
+</html>

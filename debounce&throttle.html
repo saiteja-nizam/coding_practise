@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce</title>
+</head>
+<body>
+    search:<input type="text" id="inp"/>
+    <button id="btn">click</button>
+
+    <script>
+        let ele=document.getElementById('inp')
+        let btn=document.getElementById('btn')
+        function outcome(event){
+            console.log(event.target.value)
+        }
+        function hofDebounce(func,delay){
+            let timer;
+            return function(...args){
+                clearTimeout(timer)
+                timer=setTimeout(()=>func(...args),delay
+                )
+            }
+        }
+        function clicked(){
+            console.log('button clicked')
+        }
+
+        function throttle(func,delay){
+            let lastCall=0
+            return function(...args){
+                let now=new Date().getTime()
+                if((now-lastCall)<delay) return;
+                lastCall=now
+                func(...args)
+            }
+        }
+        ele.addEventListener('keyup',hofDebounce(outcome,1000))
+        btn.addEventListener('click',throttle(clicked,1000))
+    </script>
+</body>
+</html>

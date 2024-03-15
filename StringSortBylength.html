@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings by length</title>
+</head>
+<body>
+    <script>
+        let a=["a","saiteja","ramya","vamshi","ram","b"]
+        function stringByLength(arr){
+
+            arr.sort((a,b)=>b.length-a.length)
+            console.log(arr)
+        }
+        let b=[0,1,1,0,0,1,0]
+        function binarynumSort(arr){
+            arr.sort((a,b)=>a-b)
+            console.log(arr);
+        }
+        stringByLength(a)
+        binarynumSort(b)
+    </script>
+</body>
+</html>

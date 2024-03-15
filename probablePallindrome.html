@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>probablePallindrome</title>
+</head>
+<body>
+    <script>
+        let str='ababc'
+        function isPallindrome(str){
+           let reversedWord = str.split("").reverse().join("")
+           return str===reversedWord
+        }
+        function swap(word,i,j){
+            let temp
+            let arr=word.split('')
+            temp=arr[i]
+            arr[i]=arr[j]
+            arr[j]=temp
+            return arr.join('')
+        }
+        
+        let permutatedWords=[]
+        function permutate(str,l,r){
+            if(l===r){
+                permutatedWords.push(str)
+            }
+            else{
+                for(let i=l;i<=r;i++){
+                    str=swap(str,l,i)
+                    permutate(str,l+1,r)
+                    str=swap(str,l,i)
+                }
+            }
+        return permutatedWords
+        }
+   
+        function probablePallindrome(str){
+            let uniqueChars=[...new Set(str.split(""))]
+            if (uniqueChars.length>str.length/2 + 1) return false
+            else{
+
+                let possibleWords=permutate(str,0,str.length-1)
+                for(let i=0;i<possibleWords.length;i++){  
+                    if(isPallindrome(possibleWords[i])){
+                        return true
+                    }
+                }
+                return false
+            }
+        }
+
+        console.log(probablePallindrome(str))
+    </script>
+</body>
+</html>

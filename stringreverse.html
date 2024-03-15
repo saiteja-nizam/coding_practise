@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stringreverse</title>
+  </head>
+  <body>
+    <script>
+      function stringReverse(sentence) {
+        let words = sentence.split(" ");
+        let strRev = words.map((e) => e.split("").reverse().join(""));
+        return strRev.join(" ");
+      }
+
+      console.log(stringReverse("sai is"));
+    </script>
+  </body>
+</html>

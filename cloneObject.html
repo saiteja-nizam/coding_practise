@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cloneObject</title>
+  </head>
+  <body>
+    <script>
+      function cloneObject(obj) {
+        return JSON.parse(JSON.stringify(obj));
+      }
+      let obj1 = {
+        a: 1,
+        b: {
+            d:4,
+            e:5
+        },
+        c: 3,
+      };
+
+      let obj2 = cloneObject(obj1);
+      obj1.b.e=3
+      console.log(obj1);
+      console.log(obj2);
+
+      let f=()=>{
+        console.log("f")
+        return false
+      }
+      let g=()=>{
+        console.log("g")
+        return true
+      }
+      let x=g()||f()
+      
+    </script>
+  </body>
+</html>

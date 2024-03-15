@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even_Odd</title>
+</head>
+<body>
+    <script>
+        let k=[4,7,5,8,25,0,100,9]
+        function EvenOdd(arr){
+            let s=arr.sort((a,b)=>a-b)
+            let even=[]
+            let odd=[]
+            s.forEach(e=>e%2==0?even.push(e):odd.push(e))
+            console.log([...even,...odd])
+        }
+        EvenOdd(k)
+    </script>
+</body>
+</html>

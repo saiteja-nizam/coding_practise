@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currying</title>
+</head>
+<body>
+    <script>
+        function sum(a,b,c,d){
+            return a+b+c+d
+        }
+        let totalSum=curry(sum)
+        function curry(func){
+            return function curriedfunc(...args){
+                console.log(args,func)
+                if(args.length===func.length){
+                    return func(...args)
+                }
+                else{
+                    return function(...next){
+                        return curriedfunc(...args,...next)
+                    }
+                }
+            }
+        }
+        function total(a){
+            return function(b){
+                if(b) return total(a+b)
+                else return a
+            }
+        }
+
+        
+
+        console.log(total(2)(3)(4)(1)(3)())
+
+        console.log(totalSum(1)(2,5)(4))
+    </script>
+</body>
+</html>
